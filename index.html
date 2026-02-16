@@ -581,6 +581,7 @@
             text-decoration: none;
             font-size: 0.875rem;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .explorer-signal a:hover {
@@ -1061,35 +1062,35 @@
                 <p>Our framework evaluates reports across three critical dimensions</p>
             </div>
 
-                <div class="card-grid">
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('structure'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card structure">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            </div>
-                            <h3>Structure</h3>
-                            <p>Does the report include required components and maintain professional consistency?</p>
+            <div class="card-grid">
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card structure">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         </div>
-                    </a>
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('substance'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card substance">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path><path d="M11 8a3 3 0 0 0-3 3"></path></svg>
-                            </div>
-                            <h3>Substance</h3>
-                            <p>Do the controls, testing, and conclusions logically align and support each other?</p>
+                        <h3>Structure</h3>
+                        <p>Does the report include required components and maintain professional consistency?</p>
+                    </div>
+                </a>
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card substance">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path><path d="M11 8a3 3 0 0 0-3 3"></path></svg>
                         </div>
-                    </a>
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('source'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card source">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                            </div>
-                            <h3>Source</h3>
-                            <p>What credentials, independence factors, and track record may affect report credibility?</p>
+                        <h3>Substance</h3>
+                        <p>Do the controls, testing, and conclusions logically align and support each other?</p>
+                    </div>
+                </a>
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card source">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                         </div>
-                    </a>
-                </div>
+                        <h3>Source</h3>
+                        <p>What credentials, independence factors, and track record may affect report credibility?</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -1114,41 +1115,43 @@
                 <p>The rubric evaluates reports across three dimensions — Structure, Substance, and Source. Structure failures indicate the report may not meet professional standards. Substance failures mean the documented work doesn't support the conclusions. Source failures suggest factors that undermine independence or credibility. Only by evaluating all three together can practitioners determine whether a report provides reliable assurance or merely creates the appearance of compliance.</p>
             </div>
 
-                <div class="card-grid">
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('structure'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card structure">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            </div>
-                            <h3>Structure</h3>
-                            <p>Does the report include required components and maintain professional consistency?</p>
+            <div class="card-grid">
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card structure">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         </div>
-                    </a>
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('substance'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card substance">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path><path d="M11 8a3 3 0 0 0-3 3"></path></svg>
-                            </div>
-                            <h3>Substance</h3>
-                            <p>Do the controls, testing, and conclusions logically align and support each other?</p>
+                        <h3>Structure</h3>
+                        <p>Does the report include required components and maintain professional consistency?</p>
+                    </div>
+                </a>
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card substance">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path><path d="M11 8a3 3 0 0 0-3 3"></path></svg>
                         </div>
-                    </a>
-                    <a href="#rubric-explore" onclick="setTimeout(() => loadExplorerContent('source'), 200)" style="text-decoration: none; color: inherit;">
-                        <div class="card pillar-card source">
-                            <div class="card-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                            </div>
-                            <h3>Source</h3>
-                            <p>What credentials, independence factors, and track record may affect report credibility?</p>
+                        <h3>Substance</h3>
+                        <p>Do the controls, testing, and conclusions logically align and support each other?</p>
+                    </div>
+                </a>
+                <a href="#rubric-explore" class="card-link">
+                    <div class="card pillar-card source">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                         </div>
-                    </a>
-                </div>
+                        <h3>Source</h3>
+                        <p>What credentials, independence factors, and track record may affect report credibility?</p>
+                    </div>
+                </a>
+            </div>
+            
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="#rubric-explore" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem;" onclick="setTimeout(() => loadExplorerContent('overview'), 200)">Explore the Rubric</a>
+                <a href="#rubric-explore" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem;">Explore the Rubric</a>
             </div>
         </div>
     </div>
-<div id="rubric-explore" class="page">
+
+    <div id="rubric-explore" class="page">
         <div class="explorer-container">
             <aside class="explorer-sidebar" id="explorerSidebar">
                 <div class="explorer-sidebar-header">
@@ -1350,7 +1353,15 @@
                 page.classList.remove('active');
             });
             
-            const targetPage = document.getElementById(hash.split('-')[0]);
+            // FIXED: Don't split rubric-explore, treat it as a full page ID
+            let targetPageId = hash;
+            
+            // Only split for deep links like #rubric-explore-s1
+            if (hash.startsWith('rubric-explore-') && hash.length > 'rubric-explore-'.length) {
+                targetPageId = 'rubric-explore';
+            }
+            
+            const targetPage = document.getElementById(targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active');
                 window.scrollTo(0, 0);
@@ -1417,7 +1428,7 @@
                         <div class="guide-pillars">
                             <div class="guide-pillar-item">
                                 <div class="guide-pillar-icon structure">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                                 </div>
                                 <div class="guide-pillar-text">
                                     <h4>Structure (3 signals)</h4>
@@ -1572,7 +1583,7 @@
                     </div>
                 `,
                 's1': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S1</span>
                         <span class="badge badge-pillar structure">Structure</span>
                     </div>
@@ -1595,7 +1606,7 @@
                     </div>
                 `,
                 's2': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S2</span>
                         <span class="badge badge-pillar structure">Structure</span>
                     </div>
@@ -1616,7 +1627,7 @@
                     </div>
                 `,
                 's3': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S3</span>
                         <span class="badge badge-pillar structure">Structure</span>
                     </div>
@@ -1638,7 +1649,7 @@
                     </div>
                 `,
                 's4': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S4</span>
                         <span class="badge badge-pillar substance">Substance</span>
                     </div>
@@ -1665,7 +1676,7 @@
                     </div>
                 `,
                 's5': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S5</span>
                         <span class="badge badge-pillar substance">Substance</span>
                     </div>
@@ -1686,7 +1697,7 @@
                     </div>
                 `,
                 's6': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S6</span>
                         <span class="badge badge-pillar substance">Substance</span>
                     </div>
@@ -1714,7 +1725,7 @@
                     </div>
                 `,
                 's7': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S7</span>
                         <span class="badge badge-pillar substance">Substance</span>
                     </div>
@@ -1740,7 +1751,7 @@
                     </div>
                 `,
                 's8': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S8</span>
                         <span class="badge badge-pillar source">Source</span>
                     </div>
@@ -1768,7 +1779,7 @@
                     </div>
                 `,
                 's9': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S9</span>
                         <span class="badge badge-pillar source">Source</span>
                     </div>
@@ -1790,7 +1801,7 @@
                     </div>
                 `,
                 's10': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S10</span>
                         <span class="badge badge-pillar source">Source</span>
                     </div>
@@ -1813,7 +1824,7 @@
                     </div>
                 `,
                 's11': `
-                    <div class="signal-badges">
+                    <div class="signal-badges" style="margin-bottom: 1.5rem;">
                         <span class="badge badge-signal">S11</span>
                         <span class="badge badge-pillar source">Source</span>
                     </div>
