@@ -1853,70 +1853,131 @@
             content.scrollTop = 0;
         }
 
-        // Community Projects
-        const projectsData = [
-            { id: 1, title: "Concrete examples of each signal in practice — as seen in the wild", votes: 24, comments: 8 },
-            { id: 2, title: "Example language templates for each Tactical Response", votes: 19, comments: 5 },
-            { id: 3, title: "Abbreviated peer review checklist for validating report structure", votes: 16, comments: 3 },
-            { id: 4, title: "Scoring rubric — structured scale for each signal area", votes: 14, comments: 11 },
-            { id: 5, title: "Canadian CPA firm evaluation guidance", votes: 9, comments: 4 },
-            { id: 6, title: "Expand beyond SOC 2: ISO 27001, HITRUST, PCI quality signals", votes: 7, comments: 6 }
-        ];
+        // Community Projects - GitHub Integration
+        const GITHUB_REPO = 'hstanley01/s2guild.org';
+        const GITHUB_LABEL = 'community-project';
 
-        function getVotes() {
-            const stored = localStorage.getItem('projectVotes');
-            return stored ? JSON.parse(stored) : {};
-        }
-
-        function saveVotes(votes) {
-            localStorage.setItem('projectVotes', JSON.stringify(votes));
-        }
-
-        function renderProjects() {
+        async function fetchGitHubProjects() {
             const container = document.getElementById('projectsList');
-            const votes = getVotes();
             
-            const sortedProjects = [...projectsData].sort((a, b) => {
-                const aVotes = a.votes + (votes[a.id] || 0);
-                const bVotes = b.votes + (votes[b.id] || 0);
-                return bVotes - aVotes;
-            });
+            // Show loading state
+            container.innerHTML = `
+                <div style="text-align: center; padding: 3rem; color: var(--gray-500);">
+                    <p>Loading community projects...</p>
+                </div>
+            `;
             
-            container.innerHTML = sortedProjects.map(project => {
-                const hasVoted = votes[project.id] === 1;
-                const currentVotes = project.votes + (votes[project.id] || 0);
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${GITHUB_REPO}/issues?labels=${GITHUB_LABEL}&state=open&sort=created&direction=desc`
+                );
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+                
+                const issues = await response.json();
+                
+                if (issues.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 3rem;">
+                            <h3 style="color: var(--navy); margin-bottom: 1rem;">No Projects Yet</h3>
+                            <p style="color: var(--gray-500); margin-bottom: 1.5rem;">Be the first to propose a community project!</p>
+                            <a href="https://github.com/${GITHUB_REPO}/issues/new?labels=${GITHUB_LABEL}" 
+                               class="btn btn-primary" 
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                                Propose a Project
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort by reaction count (👍)
+                const sortedIssues = issues.sort((a, b) => {
+                    const aVotes = a.reactions['+1'] || 0;
+                    const bVotes = b.reactions['+1'] || 0;
+                    return bVotes - aVotes;
+                });
+                
+                renderProjects(sortedIssues);
+                
+            } catch (error) {
+                console.error('Error fetching GitHub issues:', error);
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 3rem;">
+                        <h3 style="color: var(--navy); margin-bottom: 1rem;">Unable to Load Projects</h3>
+                        <p style="color: var(--gray-500); margin-bottom: 1.5rem;">There was an error loading community projects. Please try again later.</p>
+                        <a href="https://github.com/${GITHUB_REPO}/issues?labels=${GITHUB_LABEL}" 
+                           class="btn btn-secondary" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            View on GitHub
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function renderProjects(issues) {
+            const container = document.getElementById('projectsList');
+            
+            container.innerHTML = issues.map(issue => {
+                const votes = issue.reactions['+1'] || 0;
+                const comments = issue.comments || 0;
                 
                 return `
                     <div class="project-item">
                         <div class="vote-container">
-                            <button class="vote-btn ${hasVoted ? 'voted' : ''}" onclick="toggleVote(${project.id})">
+                            <a href="${issue.html_url}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="vote-btn" 
+                               title="Vote on GitHub"
+                               style="text-decoration: none; color: inherit;">
                                 ▲
-                            </button>
-                            <div class="vote-count">${currentVotes}</div>
+                            </a>
+                            <div class="vote-count">${votes}</div>
                         </div>
                         <div class="project-content">
-                            <div class="project-title">${project.title}</div>
-                            <div class="project-meta">${project.comments} comments</div>
+                            <a href="${issue.html_url}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               style="text-decoration: none; color: inherit;">
+                                <div class="project-title">${issue.title}</div>
+                            </a>
+                            <div class="project-meta">
+                                ${comments} comment${comments !== 1 ? 's' : ''} · 
+                                <a href="${issue.html_url}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   style="color: var(--teal); text-decoration: none;">
+                                    Vote & Discuss on GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
                 `;
             }).join('');
+            
+            // Add "Propose New Project" button at the bottom
+            container.innerHTML += `
+                <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: var(--gray-50); border-radius: 12px;">
+                    <h3 style="color: var(--navy); margin-bottom: 1rem;">Have an Idea?</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">Propose a new community project and get feedback from practitioners</p>
+                    <a href="https://github.com/${GITHUB_REPO}/issues/new?labels=${GITHUB_LABEL}" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Propose a Project
+                    </a>
+                </div>
+            `;
         }
 
-        function toggleVote(projectId) {
-            const votes = getVotes();
-            
-            if (votes[projectId] === 1) {
-                votes[projectId] = 0;
-            } else {
-                votes[projectId] = 1;
-            }
-            
-            saveVotes(votes);
-            renderProjects();
-        }
-
-        renderProjects();
+        // Load projects when page loads
+        fetchGitHubProjects();
     </script>
 </body>
 </html>
