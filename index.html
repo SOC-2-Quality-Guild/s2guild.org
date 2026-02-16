@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOC 2 Quality Guild</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -82,15 +87,17 @@
         .logo-mark {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-light));
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 700;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
         }
 
         .nav-links {
@@ -982,7 +989,9 @@
     <nav>
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <div class="logo-mark">S2</div>
+                <div class="logo-mark">
+                    <img src="logo.jpg" alt="SOC 2 Quality Guild Logo">
+                </div>
                 <span>SOC 2 Quality Guild</span>
             </a>
             <button class="nav-toggle" id="navToggle">
@@ -1927,34 +1936,55 @@
                 const votes = issue.reactions['+1'] || 0;
                 const comments = issue.comments || 0;
                 
+                // Convert markdown to basic HTML (simple implementation)
+                let description = issue.body || 'No description provided.';
+                
+                // Truncate if too long (show first 300 chars)
+                const maxLength = 300;
+                if (description.length > maxLength) {
+                    description = description.substring(0, maxLength) + '...';
+                }
+                
+                // Basic markdown conversion
+                description = description
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // bold
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>') // italic
+                    .replace(/\n\n/g, '</p><p>') // paragraphs
+                    .replace(/\n/g, '<br>'); // line breaks
+                
                 return `
-                    <div class="project-item">
-                        <div class="vote-container">
-                            <a href="${issue.html_url}" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="vote-btn" 
-                               title="Vote on GitHub"
-                               style="text-decoration: none; color: inherit;">
-                                ▲
-                            </a>
-                            <div class="vote-count">${votes}</div>
-                        </div>
-                        <div class="project-content">
-                            <a href="${issue.html_url}" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               style="text-decoration: none; color: inherit;">
-                                <div class="project-title">${issue.title}</div>
-                            </a>
-                            <div class="project-meta">
-                                ${comments} comment${comments !== 1 ? 's' : ''} · 
+                    <div class="project-item" style="display: block;">
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                            <div class="vote-container">
                                 <a href="${issue.html_url}" 
                                    target="_blank" 
                                    rel="noopener noreferrer" 
-                                   style="color: var(--teal); text-decoration: none;">
-                                    Vote & Discuss on GitHub
+                                   class="vote-btn" 
+                                   title="Vote on GitHub"
+                                   style="text-decoration: none; color: inherit;">
+                                    ▲
                                 </a>
+                                <div class="vote-count">${votes}</div>
+                            </div>
+                            <div class="project-content" style="flex: 1;">
+                                <a href="${issue.html_url}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   style="text-decoration: none; color: inherit;">
+                                    <div class="project-title">${issue.title}</div>
+                                </a>
+                                <div style="color: var(--gray-600); font-size: 0.9375rem; margin: 0.75rem 0; line-height: 1.6;">
+                                    <p>${description}</p>
+                                </div>
+                                <div class="project-meta">
+                                    ${comments} comment${comments !== 1 ? 's' : ''} · 
+                                    <a href="${issue.html_url}" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       style="color: var(--teal); text-decoration: none;">
+                                        Vote & Discuss on GitHub
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
