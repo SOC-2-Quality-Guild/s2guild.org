@@ -1,1 +1,1 @@
-# s2guild
+# s2guild.org
