@@ -468,10 +468,19 @@
             margin-bottom: 0.5rem;
         }
 
+        .explorer-outer {
+            background: var(--white);
+            border-right: 1px solid var(--gray-100);
+        }
+
         .explorer-container {
             display: flex;
             min-height: calc(100vh - 64px);
             position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            background: var(--off-white);
         }
 
         .explorer-sidebar {
@@ -1211,6 +1220,7 @@
     </div>
 
     <div id="rubric-explore" class="page">
+        <div class="explorer-outer">
         <div class="explorer-container">
             <aside class="explorer-sidebar" id="explorerSidebar">
                 <div class="explorer-sidebar-header">
@@ -1618,8 +1628,9 @@
             <button class="explorer-mobile-toggle" id="explorerMobileToggle">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
-        </div>
-    </div>
+        </div><!-- /.explorer-container -->
+        </div><!-- /.explorer-outer -->
+    </div><!-- /#rubric-explore -->
 
 
     <div id="responding" class="page">
@@ -1737,36 +1748,36 @@
 
         function handleRoute() {
             const hash = window.location.hash.slice(1) || 'home';
+
+            // Ignore in-page section anchors — let the browser scroll naturally
+            // but make sure rubric-explore page stays visible
+            if (hash.startsWith('section-')) {
+                const explorePage = document.getElementById('rubric-explore');
+                if (explorePage && !explorePage.classList.contains('active')) {
+                    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                    explorePage.classList.add('active');
+                }
+                return;
+            }
+
             const pages = document.querySelectorAll('.page');
-            
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // FIXED: Don't split rubric-explore, treat it as a full page ID
+            pages.forEach(page => page.classList.remove('active'));
+
             let targetPageId = hash;
-            
-            // Only split for deep links like #rubric-explore-s1
             if (hash.startsWith('rubric-explore-') && hash.length > 'rubric-explore-'.length) {
                 targetPageId = 'rubric-explore';
             }
-            
+
             const targetPage = document.getElementById(targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
-            
-            // Always scroll to top of page on any navigation
+
             window.scrollTo(0, 0);
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
 
             document.getElementById('navLinks').classList.remove('active');
-
-            // If navigating to rubric-explore, scroll to top
-            if (hash === 'rubric-explore') {
-                window.scrollTo(0, 0);
-            }
         }
 
         window.addEventListener('hashchange', handleRoute);
