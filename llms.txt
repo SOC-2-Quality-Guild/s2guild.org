@@ -1,0 +1,22 @@
+# SOC 2 Quality Guild
+
+> Practitioner-driven standards for SOC 2 report reliability. A community creating standardized evaluation criteria to help GRC and TPRM practitioners assess how much weight to give a SOC 2 report when making vendor trust decisions.
+
+The SOC 2 Quality Guild provides the SOC 2 Reliability Rubric — a practical framework with 11 signals across 3 pillars (Structure, Substance, Source) — plus a Tactical Response Guide and community-driven projects to improve audit quality across the ecosystem.
+
+Licensed under CC BY-SA 4.0.
+
+## Core Resources
+
+- [SOC 2 Reliability Rubric v1.0](https://s2guild.org/rubric/v1.0/reliability-rubric-v1.0.md): The full rubric — 11 standardized signals for evaluating SOC 2 report quality across Structure, Substance, and Source pillars
+- [Rubric Changelog](https://s2guild.org/rubric/CHANGELOG.md): Version history for the rubric
+- [Website](https://s2guild.org): Main site with interactive rubric explorer, tactical response guide, and community projects
+
+## Community
+
+- [GitHub](https://github.com/SOC-2-Quality-Guild/s2guild.org): Source repository — open issues, propose projects, contribute
+- [Slack](https://join.slack.com/t/soc2qualityguild/shared_invite/zt-3on72t7v8-qgN0~aHuYM4gbDR2uDnRlA): Real-time community discussion
+
+## Optional
+
+- [README](https://github.com/SOC-2-Quality-Guild/s2guild.org/blob/main/README.md): Project overview, contributing guide, and principles
