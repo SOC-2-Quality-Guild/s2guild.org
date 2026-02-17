@@ -4,7 +4,7 @@ All notable changes to the SOC 2 Reliability Rubric.
 
 ---
 
-## [1.0] - 2026-02-16
+## [1.0] - 2026-02-15
 
 **Initial Release**
 
