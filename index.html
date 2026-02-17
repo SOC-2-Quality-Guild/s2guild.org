@@ -222,12 +222,23 @@
                 padding: 0.75rem 1.5rem;
             }
 
+            .dropdown-toggle {
+                padding: 0.75rem 1.5rem;
+                width: 100%;
+            }
+
             .dropdown-menu {
                 position: static;
                 box-shadow: none;
                 border: none;
+                border-top: none;
                 margin-top: 0;
                 padding-left: 1rem;
+                background: var(--gray-50);
+            }
+
+            .dropdown-menu a {
+                padding: 0.625rem 1.5rem;
             }
 
             .nav-toggle {
@@ -1070,7 +1081,7 @@
                         <a href="#responding">Responding to Quality Issues</a>
                     </div>
                 </li>
-                <li><a href="#projects">Community</a></li>
+                <li><a href="#projects">Contribute</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </div>
@@ -1092,7 +1103,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>What We Offer</h2>
-                <p>Practical tools for evaluating SOC 2 report quality</p>
+                <p>Open resources built by practitioners, for practitioners</p>
             </div>
 
             <div class="card-grid">
@@ -1102,25 +1113,25 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </div>
                         <h3>SOC 2 Reliability Rubric</h3>
-                        <p>A practical framework with 11 standardized signals to assess report quality across Structure, Substance, and Source.</p>
+                        <p>11 standardized signals across Structure, Substance, and Source to help you determine how much weight to give a report — before it influences a vendor trust decision.</p>
                     </div>
                 </a>
                 <a href="#responding" class="card-link">
                     <div class="card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                         </div>
-                        <h3>Responding to Quality Issues</h3>
-                        <p>Eight practical approaches for addressing report quality concerns with vendors and stakeholders.</p>
+                        <h3>Tactical Response Guide</h3>
+                        <p>Got a low-quality report? Eight practical approaches for working through quality concerns with vendors, stakeholders, and risk owners — without burning the relationship.</p>
                     </div>
                 </a>
                 <a href="#projects" class="card-link">
                     <div class="card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                         </div>
-                        <h3>Community Projects</h3>
-                        <p>Vote on and contribute to initiatives that improve the SOC 2 ecosystem for everyone.</p>
+                        <h3>Contribute</h3>
+                        <p>Vote on community-driven projects — from example libraries and scoring frameworks to expanding coverage beyond SOC 2. Your priorities shape what gets built next.</p>
                     </div>
                 </a>
             </div>
@@ -1134,7 +1145,7 @@
                 <a href="#rubric-explore" class="card-link">
                     <div class="card pillar-card structure">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         </div>
                         <h3>Structure</h3>
                         <p>Does the report include required components and maintain professional consistency?</p>
@@ -1187,7 +1198,7 @@
                 <a href="#rubric-explore" class="card-link">
                     <div class="card pillar-card structure">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         </div>
                         <h3>Structure</h3>
                         <p>Does the report include required components and maintain professional consistency?</p>
