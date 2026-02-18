@@ -1,0 +1,21 @@
+{
+  "name": "s2guild",
+  "owner": {
+    "name": "SOC 2 Quality Guild"
+  },
+  "metadata": {
+    "description": "SOC 2 report quality analysis tools by the SOC 2 Quality Guild",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "soc2-review",
+      "source": ".",
+      "description": "Analyze SOC 2 reports against the S2 Guild Reliability Rubric",
+      "version": "1.0.0",
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["soc2", "compliance", "grc", "tprm", "audit"],
+      "category": "security"
+    }
+  ]
+}
