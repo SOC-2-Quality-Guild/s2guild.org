@@ -63,6 +63,47 @@ What credentials, independence factors, and track record may affect report credi
 
 ---
 
+## AI-Assisted Analysis
+
+Use the SOC 2 Quality Guild's Claude Code skill to analyze any SOC 2 report against the full Reliability Rubric. The skill evaluates all 11 signals across Structure, Substance, and Source and produces a structured assessment with ratings, evidence, and recommended actions.
+
+### Option 1: Clone the Repo (slash command)
+
+```bash
+git clone https://github.com/SOC-2-Quality-Guild/s2guild.org.git
+cd s2guild.org
+claude
+```
+
+Then in Claude Code:
+
+```
+/soc2-review /path/to/vendor-soc2-report.pdf
+```
+
+### Option 2: Plugin Marketplace (no clone needed)
+
+```
+/plugin marketplace add SOC-2-Quality-Guild/s2guild.org
+/plugin install soc2-review@s2guild
+/soc2-review:soc2-review /path/to/vendor-soc2-report.pdf
+```
+
+### Option 3: Direct Skill Reference (power users)
+
+Add this repo as a skill source in your own project's Claude Code settings to make `/soc2-review` available in any project.
+
+### What You Get
+
+- **11 signals evaluated** across Structure, Substance, and Source pillars
+- **GREEN/YELLOW/RED ratings** for each signal with specific evidence from the report
+- **Verification checklists** with direct links for Source pillar manual review items
+- **Prioritized recommended actions** calibrated to the severity of findings
+
+> **Note:** Claude reads PDFs natively. Most SOC 2 reports (up to ~100 pages) work without any preprocessing.
+
+---
+
 ## Contributing
 
 We welcome contributions from GRC practitioners, TPRM professionals, auditors, and anyone who cares about improving security assurance quality.

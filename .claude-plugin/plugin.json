@@ -1,0 +1,14 @@
+{
+  "name": "soc2-review",
+  "version": "1.0.0",
+  "description": "Analyze SOC 2 reports against the S2 Guild Reliability Rubric — 11 signals across Structure, Substance, and Source.",
+  "author": {
+    "name": "SOC 2 Quality Guild",
+    "url": "https://github.com/SOC-2-Quality-Guild"
+  },
+  "homepage": "https://s2guild.org",
+  "repository": "https://github.com/SOC-2-Quality-Guild/s2guild.org",
+  "license": "CC-BY-SA-4.0",
+  "keywords": ["soc2", "compliance", "grc", "tprm", "audit", "security"],
+  "commands": ["./.claude/commands/"]
+}
