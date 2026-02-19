@@ -1,0 +1,174 @@
+# SOC 2 Quality Guild
+
+> Practitioner-driven standards for SOC 2 report reliability. A community creating standardized evaluation criteria to help GRC and TPRM practitioners assess how much weight to give a SOC 2 report when making vendor trust decisions.
+
+The SOC 2 Quality Guild provides the SOC 2 Reliability Rubric — a practical framework with 11 signals across 3 pillars (Structure, Substance, Source) — plus a Tactical Response Guide and community-driven projects to improve audit quality across the ecosystem.
+
+Website: https://s2guild.org
+GitHub: https://github.com/SOC-2-Quality-Guild/s2guild.org
+Slack: https://join.slack.com/t/soc2qualityguild/shared_invite/zt-3on72t7v8-qgN0~aHuYM4gbDR2uDnRlA
+License: CC BY-SA 4.0
+
+---
+
+## The Problem
+
+SOC 2 has become the most widely adopted security assurance framework for SaaS companies. But rapid growth in demand has created a quality gap — reports vary dramatically in rigor, and the ecosystem lacks standardized ways to tell the difference.
+
+TPRM teams make critical vendor trust decisions based on SOC 2 reports, but face fundamental challenges:
+
+- Quality varies widely — from rigorous professional audits to compliance theater
+- No shared evaluation criteria — practitioners rely on vibes, anecdotes, or brand recognition
+- Information asymmetry — hard to distinguish high-quality audits from low-effort check-the-box exercises
+- Inconsistent decisions — different teams assess the same report differently
+
+---
+
+## SOC 2 Reliability Rubric v1.0
+
+Status: Published
+Date: Feb 15, 2026
+Version: v1.0
+
+A practical framework that helps GRC and TPRM practitioners assess how much weight to give a SOC 2 report when making vendor trust decisions. The rubric provides standardized signals to identify reports that demonstrate audit rigor versus those that warrant additional scrutiny.
+
+What this evaluates: Report reliability as evidence — not whether a vendor's controls meet your specific needs. This rubric helps you assess the quality of the audit work itself.
+
+The rubric evaluates reports across three dimensions — Structure, Substance, and Source.
+
+- Structure failures indicate the report may not meet professional standards
+- Substance failures mean the documented work doesn't support the conclusions
+- Source failures suggest factors that undermine independence or credibility
+
+Only by evaluating all three together can practitioners determine whether a report provides reliable assurance or merely creates the appearance of compliance.
+
+### Pillar 1: Structure
+
+Does the report include required components and maintain professional consistency?
+
+#### S1: Required Auditor's Report Section Structure
+
+AICPA standards mandate specific paragraphs be included in the report: "Scope," "Opinion," and for Type 2, "Description of Tests of Controls" are explicitly required in the Auditor's Report section of the SOC 2. Missing or incorrect paragraphs indicate the auditor is unaware of the basic standard requirements of a SOC 2 audit report, or took shortcuts.
+
+What to do: Scan the Auditor's Report section (either Section 1 or Section 2) for labeled paragraphs. For Type 2, verify there's a paragraph referencing tests in Section 4. Check that the Opinion clearly states whether controls were suitably designed and operating effectively. A qualified opinion will typically have an explanatory paragraph, then the opinion itself will say "Except for the matters above…" which indicates the opinion has been qualified. Ensure the opinions reflect the most recent format published by the AICPA.
+
+#### S2: Management's Assertion Completeness
+
+Management must formally assert their system description is accurate, controls are suitably designed, and (Type 2) operating effectively. Missing or incomplete assertions mean management hasn't taken responsibility for their control environment per AICPA standards.
+
+What to do: Find Management's Assertion in Section 1 or as a separate section. Verify it includes all required elements and is signed by company leadership. If missing, incomplete, or unsigned, the report doesn't meet basic standards — request a complete version before proceeding with your assessment.
+
+#### S3: Inconsistent Language Across Report Sections
+
+Inconsistencies across report sections indicate copy-paste reuse, weak editorial control, or lack of holistic auditor review. These discrepancies tell us that the audit firm either did not understand and evaluate the actual environment, or did not dutifully prioritize the report user's clarity of understanding when drafting the report.
+
+What to do: Read the SOC 2 report and take a mental note of systems across Sections 1, 3, and 4 for alignment. Common red flags include control frequencies that change between sections (e.g., "quarterly" in Section 3 but "annual" testing in Section 4) or different system names used to describe the same environment, or mention of services or activities that are kept out of scope but suddenly appear in other sections.
+
+### Pillar 2: Substance
+
+Do the controls, testing, and conclusions logically align and support each other?
+
+#### S4: System Description Specificity
+
+Section 3 should name actual products, technology stack components, infrastructure providers, and organizational structure. Generic buzzwords that could describe any company suggest the auditor didn't engage with the real environment.
+
+What to do: Look for specific details: AWS/Azure/GCP, named SaaS tools, data center locations, organizational charts, architecture diagrams, subservice organizations involved in providing services, and policies and procedures. If it reads like marketing copy you could paste to any company, the auditor likely didn't test to the precision you would expect. Cross-reference against what you know about the vendor's actual tech stack. Ensure that the System Description is consistent with the products or services described on the vendor's website or marketing materials.
+
+#### S5: Control-to-Criteria Mapping Logic
+
+Each control maps to Trust Services Criteria (like CC6.1 for logical access). Illogical mappings (like "annual meetings" mapped to technical access controls) suggest the auditor didn't think critically about what controls actually accomplish.
+
+What to do: Spot-check 10 control mappings. Ask: does this control logically address this criterion? If technical controls are mapped to wrong categories or soft controls are used for hard technical requirements, the scoping wasn't thoughtful. Poor mapping can potentially mask control gaps and fail to ensure that the audit properly tested an important control.
+
+#### S6: Vague or Conflicting Control Descriptions
+
+Vague controls like "Management maintains security" don't tell you what's actually happening. Clear controls specify what happens, who does it, how often, and what makes it effective.
+
+What to do: Read control descriptions for specificity. A well designed control should answer 5 questions: What is done? How is it done? Who does it? When is it done? Where is it done?
+
+Good example: "Security team reviews production access quarterly, validates business justification with managers, removes unjustified access within 24 hours."
+Bad example: "Access is reviewed periodically."
+
+Also look for controls that contradict each other — controls requiring approvals that other controls explicitly bypass, overlapping controls with different populations, or controls that imply different sources of truth for the same activity.
+
+#### S7: Test Procedure Detail and Specificity
+
+Vague test descriptions like "reviewed evidence" or "inspected evidence" are unhelpful. Look for testing descriptions that indicate the test itself was reperformed or observed. Also ensure that sample sizes for testing are large enough to provide stronger confidence.
+
+What to do: Pick 5-7 controls critical to your use case and read their test procedures line by line. Look for: what evidence was examined, how many samples, from what time periods, what specifically was verified. If procedures are interchangeable boilerplate that could apply at any company, flag these controls and request direct evidence from the vendor. Count exceptions across Section 4 and assess whether exceptions are pervasive and/or impact core security objectives. Review non-occurring controls and scrutinize illogical or uncommon scenarios.
+
+### Pillar 3: Source
+
+What credentials, independence factors, and track record may affect report credibility?
+
+#### S8: CPA Firm Registration, Peer Review Enrollment & Results
+
+The audit firm must be registered as a CPA firm with its respective State Board to operate as a licensed firm. The audit firm must be enrolled in the AICPA Peer Review Program and be subject to peer reviews every three years. The audit firm must pass peer review to ensure they have a proper system of quality management in place for performing SOC 2 audits.
+
+What to do: Look at the bottom of Section 1 or Section 2 for the firm name, firm signature, and the home state of the CPA firm. Verify registration at NASBA's CPAVerify tool (https://ald.nasba.org/search/cpa). Perform a public file search to validate AICPA Peer Review registration at https://peerreview.aicpa.org. Ensure the "Report Rating" is "Pass" and the acceptance date is not older than three years.
+
+Note: Firm license data is not currently sent to NASBA for: North Dakota, Nebraska, New York, Pennsylvania, West Virginia, and Wyoming. Search those states' Board of Accountancy databases directly.
+
+#### S9: CPA-to-SOC Reports Issued Ratio
+
+A high ratio (too many reports per CPA) suggests that the firm may be operating as a "signature mill" without prioritizing quality.
+
+What to do: Look up the CPA firm on LinkedIn and confirm how many licensed CPAs work for the firm. Research the firm to estimate the number of SOC reports they issue per year. If you believe the ratio of licensed CPAs to SOC reports issued per year is greater than 50:1, this could signal that quality is not prioritized.
+
+#### S10: CPA Firm Leadership & Report Signer Experience
+
+CPA leadership determines whether a firm operates as an independent guardian of security or a high-volume "audit mill." The quality of a report rests on a leader's willingness to prioritize their professional license and technical accuracy over easy profits.
+
+What to do: Research the firm's founders, the managing partner, and the CPAs signing reports on LinkedIn to determine if they have sufficient experience in performing SOC 2 audits. If they do not have sufficient experience, this may indicate that leadership does not understand the AICPA's quality and independence standards.
+
+#### S11: Use of a GRC Tool
+
+Some GRC tools market "instant" SOC 2 compliance, promising audits in hours or days and guaranteeing a "pass." Such marketing often signals a "commodity audit" that prioritizes speed over substance.
+
+What to do: Identify the vendor's GRC tool by examining their Trust Center. Research its website for marketing claims: slogans promising "SOC 2 in days, hours, or weeks," terms like "Audit-Ready Guarantee" or "100% Success Rate," and lists of "preferred auditors" whose independence may be weakened by a high-volume automated business model.
+
+---
+
+## Tactical Response Guide
+
+So you've got a low quality report on your hands. Now what?
+
+1. Focus on Education, Not Accusations: Approach with curiosity and clarity, not blame. Many well-meaning vendors may not understand what a high-quality SOC 2 report means or were guided into a low-rigor audit by cost or sales pressure.
+
+2. Communicate with the Vendor: Don't silently downgrade trust. If material concerns are identified, explain what you're seeing and why it matters. Clear, specific feedback helps vendors improve and strengthens trust across the ecosystem.
+
+3. Involve Stakeholders Early: Business owners, risk owners, and technical stakeholders need to be involved from the start. These teams are most impacted by delayed approvals, compensating controls, and risk acceptance.
+
+4. Apply a Risk-Based Lens: Not all vendors carry the same risk. Consider data sensitivity, access level, deployment model, and business criticality.
+
+5. Identify Practical Mitigations: If the report isn't sufficient, consider alternatives before rejection. Request supplemental evidence for key controls, limit production access or scope of deployment, or delay rollout until improvements are made.
+
+6. Use Commercial and Contractual Levers: When a SOC 2 report cannot be reasonably relied upon, additional assurance work may be necessary. Address through contract terms, negotiations, or security addenda.
+
+7. Be Willing to Interact with the Auditor: The audit community gets very little feedback from report consumers. Constructive engagement and specific concerns can improve future audits across the broader ecosystem.
+
+8. Document the Evaluation: Whether risk is mitigated, transferred, or accepted, document the rationale to support your own governance obligations and business needs.
+
+---
+
+## Principles
+
+- Focus on Education, Not Accusations: We evaluate the reliability of reports as evidence — not the trustworthiness of individual vendors or auditors.
+- Practitioner-Driven: The Guild exists to serve practitioners making real vendor trust decisions. Community members set priorities through voting, discussion, and direct contribution.
+- Market Pressure for Quality: By giving practitioners tools to consistently evaluate report quality, we create incentives that improve outcomes for everyone.
+- Transparent and Open: Our work is open-source (CC BY-SA 4.0), community-governed, and built in public.
+
+---
+
+## Contributing
+
+Ways to contribute:
+1. Vote on Community Projects at https://s2guild.org/#projects
+2. Propose New Projects via GitHub issues: https://github.com/SOC-2-Quality-Guild/s2guild.org/issues/new?labels=community-project
+3. Share anonymized real-world examples of quality signals
+4. Suggest refinements to evaluation criteria
+5. Build automation, templates, or integrations
+
+---
+
+Copyright 2026 SOC 2 Quality Guild. Licensed under CC BY-SA 4.0.
